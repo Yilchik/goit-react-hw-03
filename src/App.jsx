@@ -1,6 +1,6 @@
 import "./App.css";
 import primaryContacts from "./contacts.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
@@ -25,11 +25,22 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    const saveContacts = JSON.parse(localStorage.getItem("contacts"));
+    if (saveContacts) {
+      setContacts(saveContacts);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm submit={addContact} />
+        <ContactForm addContact={addContact} />
         <SearchBox value={filter} onFilter={setFilter} />
         <ContactList contacts={visibleContacts} onDelete={deleteContact} />
       </div>
