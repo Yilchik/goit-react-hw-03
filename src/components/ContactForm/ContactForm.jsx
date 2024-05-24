@@ -40,7 +40,7 @@ const ContactForm = ({ addContact }) => {
 
         <label htmlFor={numberFieldId}>Number</label>
         <Field
-          type="number"
+          type="phone"
           name="number"
           id={numberFieldId}
           className={css.myInput}
