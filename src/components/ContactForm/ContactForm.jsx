@@ -4,8 +4,14 @@ import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().min(3, "Min 3").max(50, "max 50").required("required"),
-  number: Yup.string().min(3, "Min 3").max(50, "max 50").required("required"),
+  name: Yup.string()
+    .min(3, "Min 3 - To short!")
+    .max(50, "Max 50 - To long!")
+    .required("Required"),
+  number: Yup.string()
+    .min(3, "Min 3 - To short!")
+    .max(50, "Max 50 - To long!")
+    .required("Required"),
 });
 
 const ContactForm = ({ submit }) => {
@@ -37,6 +43,7 @@ const ContactForm = ({ submit }) => {
           id={numberFieldId}
           className={css.myInput}
         />
+        <ErrorMessage name="number" component="span" />
 
         <button type="submit" className={css.formBtn}>
           Add contact

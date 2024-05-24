@@ -6,20 +6,32 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
-  const [contacts] = useState(primaryContacts);
+  const [contacts, setContacts] = useState(primaryContacts);
   const [filter, setFilter] = useState("");
 
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const addContact = (newContact) => {
+    setContacts((prevContact) => {
+      return [...prevContact, newContact];
+    });
+  };
+
+  const deleteContact = (ContactId) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((Contact) => Contact.id !== ContactId);
+    });
+  };
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm submit={addContact} />
         <SearchBox value={filter} onFilter={setFilter} />
-        <ContactList contacts={visibleContacts} />
+        <ContactList contacts={visibleContacts} onDelete={deleteContact} />
       </div>
     </>
   );
