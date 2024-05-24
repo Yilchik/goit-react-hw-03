@@ -1,13 +1,16 @@
-import "./App.css";
+import css from "./App.css";
+import contact from "../../contact.json";
+import { useState } from "react";
 
 function App() {
+  const [contacts, setContacts] = useState(contact);
   return (
     <>
       <div>
         <h1>Phonebook</h1>
         <ContactForm />
         <SearchBox />
-        <ContactList />
+        <ContactList contacts={contacts} />
       </div>
     </>
   );
