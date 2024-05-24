@@ -4,7 +4,7 @@ import { BsTelephoneFill } from "react-icons/bs";
 
 function Contact({ data: { id, name, number }, onDelete }) {
   return (
-    <div>
+    <div className={css.container}>
       <p>
         <RiUser3Fill className="myIcon" size={24} />
         {name}

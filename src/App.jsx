@@ -1,9 +1,11 @@
 import css from "./App.css";
-import contact from "../../contact.json";
+import contacts from "./contacts.json";
 import { useState } from "react";
+import ContactList from "./components/ContactList/ContactList";
 
 function App() {
-  const [contacts, setContacts] = useState(contact);
+  const [contacts, setContacts] = useState(contacts);
+  const addContact = () => {};
   return (
     <>
       <div>
