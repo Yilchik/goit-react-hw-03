@@ -1,4 +1,4 @@
-import css from "./App.css";
+import css from "./ContactList.module.css";
 
 function ContactList({ contacts }) {
   return (
