@@ -3,6 +3,7 @@ import primaryContacts from "./contacts.json";
 import { useState } from "react";
 import ContactList from "./components/ContactList/ContactList";
 import SearchBox from "./components/SearchBox/SearchBox";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   const [contacts] = useState(primaryContacts);
@@ -16,7 +17,7 @@ function App() {
     <>
       <div>
         <h1>Phonebook</h1>
-        {/* <ContactForm /> */}
+        <ContactForm />
         <SearchBox value={filter} onFilter={setFilter} />
         <ContactList contacts={visibleContacts} />
       </div>

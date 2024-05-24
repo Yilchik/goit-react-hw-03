@@ -1,5 +1,4 @@
 .container {
-  padding: 4px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -8,5 +7,5 @@
 }
 
 .myInput {
-  width: 100%;
+  width: 300px;
 }
