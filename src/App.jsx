@@ -6,7 +6,10 @@ import SearchBox from "./components/SearchBox/SearchBox";
 import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
-  const [contacts, setContacts] = useState(primaryContacts);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem("contacts")) || primaryContacts;
+  });
+
   const [filter, setFilter] = useState("");
 
   const visibleContacts = contacts.filter((contact) =>
